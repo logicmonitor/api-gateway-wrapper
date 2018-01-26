@@ -38,6 +38,7 @@ def main():
         for line in sys.stdin:
             stdin = stdin + line
             data = json.loads(stdin)
+            query = json.loads(data['query'])
     except:
         error('Error parsing stdin to JSON')
 
@@ -47,7 +48,7 @@ def main():
 
     # send http request and attempt to parse response as json
     # try:
-    f = opener.open(data['endpoint'] + '?' + query_string(data['query']))
+    f = opener.open(data['endpoint'] + '?' + query_string(query))
     result = f.read()
     # except:
     #     error('Error sending HTTP request')
