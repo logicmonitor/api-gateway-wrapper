@@ -65,8 +65,7 @@ def main():
     # concat key strings, format as hash, and print json for terraform
     try:
         print(json.dumps({
-            'hosts': ','.join(result['hosts']),
-            'count': len(result['hosts'])
+            'hosts': ','.join(result['hosts'])
         }))
     except:
         error('Error formatting results and outputting to stdout')
